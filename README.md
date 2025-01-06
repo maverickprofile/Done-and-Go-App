@@ -13,14 +13,6 @@ A simple and intuitive ToDo App built using **HTML**, **CSS**, and **JavaScript*
 
 ---
 
-## Demo
-
-![ToDo App Preview](https://via.placeholder.com/800x400?text=Screenshot+Preview)
-
-Try it live: [ToDo App Live Demo](#) _(Add your live demo link here)_
-
----
-
 ## Tech Stack
 
 - **HTML5** - Markup language for structuring the app.
