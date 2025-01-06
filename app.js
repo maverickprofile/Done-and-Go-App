@@ -1,26 +1,26 @@
-let todo = [];
-let request = prompt("Enter the request: [list, add, delete, quit]");
+let btn = document.querySelector("button");
+let ul = document.querySelector("ul");
+let inp = document.querySelector("input");
 
-while(true){
-    if(request == "quit"){
-        console.log("You quit the app");
-        break;
-    }else if(request == "list"){
-        console.log("------------------");
-        for(let i = 0; i < todo.length; i++){
-            console.log(`${i}: ${todo[i]}`);
-        }
-        console.log("------------------");
-    }else if(request == "add"){
-        let task = prompt("Enter the task to the list");
-        todo.push(task);
-        console.log("Task added to the list");
-    }else if(request == "delete"){
-        let index = prompt("Enter the index to delete the task");
-        todo.splice(index, 1);
-        console.log("Task deleted from the list");
-    }else{
-        console.log("Invalid request");
+btn.addEventListener("click", function() {
+    if (inp.value.trim() !== "") { // Prevent adding empty tasks
+        let item = document.createElement("li");
+        item.innerText = inp.value;
+
+        let delBtn = document.createElement("button");
+        delBtn.innerText = "DELETE";
+        delBtn.classList.add("delete");
+
+        item.appendChild(delBtn);
+        ul.appendChild(item);
+        inp.value = "";
     }
-    request = prompt("Enter the request: [list, add, delete, quit]");
-}
+});
+
+ul.addEventListener("click", function(event) {
+    if (event.target.classList.contains("delete")) { // Check if clicked element is delete button
+        let item = event.target.parentElement; // Get the parent <li>
+        item.remove();
+        console.log("Task Deleted");
+    }
+});
